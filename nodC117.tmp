@@ -1,0 +1,697 @@
+[gd_scene load_steps=47 format=3 uid="uid://6sv1i4utvk7r"]
+
+[ext_resource type="Script" path="res://GameMaster.gd" id="1_j52ki"]
+[ext_resource type="Texture2D" uid="uid://b6u7kt18ad385" path="res://Assets/Cards/Default/bg_1.png" id="2_c1qhp"]
+[ext_resource type="Script" path="res://AmmoCount.gd" id="2_oy1oa"]
+[ext_resource type="Script" path="res://EnemyManager.gd" id="3_8e85x"]
+[ext_resource type="Texture2D" uid="uid://dmive2r4axkvf" path="res://Assets/Cards/Default/Attack_0.png" id="4_2lwqg"]
+[ext_resource type="Texture2D" uid="uid://cplhlqppefcqn" path="res://Assets/Cards/Default/shield.png" id="5_dfnai"]
+[ext_resource type="Script" path="res://AttackSprite.gd" id="5_io7an"]
+[ext_resource type="Script" path="res://TooltipController.gd" id="6_40ft3"]
+[ext_resource type="LabelSettings" uid="uid://c8hfsjdhhxeqr" path="res://keybinds.tres" id="6_82pqh"]
+[ext_resource type="Texture2D" uid="uid://7df4e08cwn5r" path="res://Assets/Cards/Default/charge.png" id="6_ll0b8"]
+[ext_resource type="Script" path="res://ShieldSprite.gd" id="7_5eqly"]
+[ext_resource type="Script" path="res://ChargeSprite.gd" id="7_es7vw"]
+[ext_resource type="LabelSettings" uid="uid://b11ldrg0cpv7b" path="res://node_2d.tres" id="8_asvmm"]
+[ext_resource type="Texture2D" uid="uid://dnnyb6bu0uscd" path="res://Assets/Cards/Default/LockInSmall.png" id="9_jeltq"]
+[ext_resource type="Script" path="res://LockIn.gd" id="10_i6dbb"]
+[ext_resource type="Texture2D" uid="uid://ccpu1v8iiv47h" path="res://Assets/Cards/Default/ultimate_0.png" id="11_3r0d2"]
+[ext_resource type="Script" path="res://Ultimate.gd" id="12_qnh4b"]
+[ext_resource type="Script" path="res://Ammo notif.gd" id="13_o8iii"]
+[ext_resource type="Texture2D" uid="uid://qwh4013d1ar1" path="res://Assets/Cards/Default/ultimate_enemy0.png" id="13_vsc2d"]
+[ext_resource type="Script" path="res://Enemy Ult.gd" id="14_3do0e"]
+[ext_resource type="Texture2D" uid="uid://d3ycgjnm6m1xd" path="res://Assets/Cards/Default/PlaceholderCard.png" id="14_vgwom"]
+[ext_resource type="Script" path="res://ChosenCard.gd" id="15_v4rk7"]
+[ext_resource type="Script" path="res://Dynamic Label.gd" id="16_fbbda"]
+[ext_resource type="Script" path="res://EnemyCard.gd" id="16_rn7xa"]
+[ext_resource type="Script" path="res://Ulti Notif.gd" id="17_c0cef"]
+[ext_resource type="Script" path="res://DisappearTimer.gd" id="17_nq0nj"]
+[ext_resource type="Script" path="res://EndScreen.gd" id="20_m4cs5"]
+[ext_resource type="Script" path="res://UltiNotifTimer.gd" id="20_owljb"]
+[ext_resource type="Script" path="res://WinnerLabel.gd" id="20_ysp58"]
+[ext_resource type="Script" path="res://AmmoNotifTimer.gd" id="22_k2ouk"]
+[ext_resource type="Texture2D" uid="uid://bnbcnr4xitj2c" path="res://Assets/Cards/Default/CardbackEnemy.png" id="27_7b1a5"]
+[ext_resource type="Script" path="res://SoundController.gd" id="32_kj7sf"]
+[ext_resource type="AudioStream" uid="uid://bm8g4lkyouirc" path="res://Assets/Sounds/Drum_kick.wav" id="33_r0as4"]
+[ext_resource type="Script" path="res://kick_sound.gd" id="34_l3syb"]
+[ext_resource type="Script" path="res://countChanger.gd" id="35_4jpi5"]
+[ext_resource type="AudioStream" uid="uid://b6vrohh8a1yfj" path="res://Assets/Sounds/Clap_sound.wav" id="35_i5jmj"]
+[ext_resource type="Script" path="res://clap_sound.gd" id="35_ki7wd"]
+[ext_resource type="Script" path="res://TimingLabel.gd" id="37_ohe1i"]
+[ext_resource type="Script" path="res://hideLabel.gd" id="39_wlfso"]
+[ext_resource type="Script" path="res://MatchCountdown.gd" id="40_8euej"]
+[ext_resource type="Script" path="res://CountdownLabel.gd" id="41_jl2gu"]
+
+[sub_resource type="CanvasItemMaterial" id="CanvasItemMaterial_lutmt"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_tq40l"]
+font_size = 100
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_k44pm"]
+font_size = 25
+outline_size = 3
+outline_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_cayok"]
+
+[sub_resource type="FontFile" id="FontFile_qf60l"]
+cache/0/16/0/ascent = 0.0
+cache/0/16/0/descent = 0.0
+cache/0/16/0/underline_position = 0.0
+cache/0/16/0/underline_thickness = 0.0
+cache/0/16/0/scale = 1.0
+cache/0/16/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/16/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/2/0/ascent = 0.0
+cache/0/2/0/descent = 0.0
+cache/0/2/0/underline_position = 0.0
+cache/0/2/0/underline_thickness = 0.0
+cache/0/2/0/scale = 1.0
+cache/0/2/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/2/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/3/0/ascent = 0.0
+cache/0/3/0/descent = 0.0
+cache/0/3/0/underline_position = 0.0
+cache/0/3/0/underline_thickness = 0.0
+cache/0/3/0/scale = 1.0
+cache/0/3/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/3/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/4/0/ascent = 0.0
+cache/0/4/0/descent = 0.0
+cache/0/4/0/underline_position = 0.0
+cache/0/4/0/underline_thickness = 0.0
+cache/0/4/0/scale = 1.0
+cache/0/4/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/4/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/5/0/ascent = 0.0
+cache/0/5/0/descent = 0.0
+cache/0/5/0/underline_position = 0.0
+cache/0/5/0/underline_thickness = 0.0
+cache/0/5/0/scale = 1.0
+cache/0/5/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/5/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/6/0/ascent = 0.0
+cache/0/6/0/descent = 0.0
+cache/0/6/0/underline_position = 0.0
+cache/0/6/0/underline_thickness = 0.0
+cache/0/6/0/scale = 1.0
+cache/0/6/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/6/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/7/0/ascent = 0.0
+cache/0/7/0/descent = 0.0
+cache/0/7/0/underline_position = 0.0
+cache/0/7/0/underline_thickness = 0.0
+cache/0/7/0/scale = 1.0
+cache/0/7/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/7/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/8/0/ascent = 0.0
+cache/0/8/0/descent = 0.0
+cache/0/8/0/underline_position = 0.0
+cache/0/8/0/underline_thickness = 0.0
+cache/0/8/0/scale = 1.0
+cache/0/8/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/8/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/9/0/ascent = 0.0
+cache/0/9/0/descent = 0.0
+cache/0/9/0/underline_position = 0.0
+cache/0/9/0/underline_thickness = 0.0
+cache/0/9/0/scale = 1.0
+cache/0/9/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/9/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/10/0/ascent = 0.0
+cache/0/10/0/descent = 0.0
+cache/0/10/0/underline_position = 0.0
+cache/0/10/0/underline_thickness = 0.0
+cache/0/10/0/scale = 1.0
+cache/0/10/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/10/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/50/0/ascent = 0.0
+cache/0/50/0/descent = 0.0
+cache/0/50/0/underline_position = 0.0
+cache/0/50/0/underline_thickness = 0.0
+cache/0/50/0/scale = 1.0
+cache/0/50/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/50/0/kerning_overrides/60/0 = Vector2(0, 0)
+cache/0/60/0/ascent = 0.0
+cache/0/60/0/descent = 0.0
+cache/0/60/0/underline_position = 0.0
+cache/0/60/0/underline_thickness = 0.0
+cache/0/60/0/scale = 1.0
+cache/0/60/0/kerning_overrides/16/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/2/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/3/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/4/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/5/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/6/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/7/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/8/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/9/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/10/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/50/0 = Vector2(0, 0)
+cache/0/60/0/kerning_overrides/60/0 = Vector2(0, 0)
+
+[node name="Node2D" type="Node2D"]
+material = SubResource("CanvasItemMaterial_lutmt")
+position = Vector2(-15, -3)
+scale = Vector2(1.66, 1.66)
+script = ExtResource("1_j52ki")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(584.94, 323.193)
+scale = Vector2(0.603037, 0.614123)
+texture = ExtResource("2_c1qhp")
+
+[node name="PlayerManager" type="TextEdit" parent="."]
+offset_left = 909.0
+offset_top = 489.0
+offset_right = 1017.0
+offset_bottom = 604.0
+text = "Health: 2
+Ammo: 0
+"
+editable = false
+script = ExtResource("2_oy1oa")
+
+[node name="EnemyManager" type="TextEdit" parent="."]
+offset_left = 915.0
+offset_top = 50.0
+offset_right = 1017.0
+offset_bottom = 157.0
+editable = false
+script = ExtResource("3_8e85x")
+
+[node name="AttackSprite" type="Sprite2D" parent="."]
+position = Vector2(722, 522)
+scale = Vector2(0.207031, 0.207031)
+texture = ExtResource("4_2lwqg")
+script = ExtResource("5_io7an")
+
+[node name="Key Label3" type="Label" parent="AttackSprite"]
+offset_left = -38.641
+offset_top = 397.158
+offset_right = 56.359
+offset_bottom = 605.158
+theme_override_font_sizes/font_size = 100
+text = "E"
+label_settings = ExtResource("6_82pqh")
+
+[node name="TooltipController" type="Control" parent="AttackSprite"]
+visible = false
+layout_mode = 3
+anchor_top = 0.016
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -256.0
+offset_top = -398.288
+offset_right = -261.0
+offset_bottom = -382.0
+script = ExtResource("6_40ft3")
+
+[node name="Background Dim" type="Sprite2D" parent="AttackSprite"]
+position = Vector2(0.000488281, 311.027)
+scale = Vector2(1.00934, 0.199376)
+texture = ExtResource("14_vgwom")
+
+[node name="Label" type="Label" parent="AttackSprite"]
+offset_left = -258.0
+offset_top = 234.0
+offset_right = 254.0
+offset_bottom = 383.0
+text = "ATTACK"
+label_settings = ExtResource("8_asvmm")
+horizontal_alignment = 1
+
+[node name="ShieldSprite" type="Sprite2D" parent="."]
+position = Vector2(599, 520)
+scale = Vector2(0.208985, 0.208985)
+texture = ExtResource("5_dfnai")
+script = ExtResource("7_5eqly")
+
+[node name="Key Label2" type="Label" parent="ShieldSprite"]
+offset_left = -90.915
+offset_top = 397.158
+offset_right = 51.085
+offset_bottom = 605.158
+theme_override_font_sizes/font_size = 100
+text = "W"
+label_settings = ExtResource("6_82pqh")
+
+[node name="Background Dim" type="Sprite2D" parent="ShieldSprite"]
+position = Vector2(0.000488281, 311.027)
+scale = Vector2(1.00934, 0.199376)
+texture = ExtResource("14_vgwom")
+
+[node name="Label" type="Label" parent="ShieldSprite"]
+offset_left = -258.0
+offset_top = 234.0
+offset_right = 254.0
+offset_bottom = 383.0
+text = "DEFEND"
+label_settings = ExtResource("8_asvmm")
+horizontal_alignment = 1
+
+[node name="Ultimate" type="Sprite2D" parent="."]
+position = Vector2(222, 484)
+scale = Vector2(0.327881, 0.327881)
+texture = ExtResource("11_3r0d2")
+script = ExtResource("12_qnh4b")
+
+[node name="Key Label2" type="Label" parent="Ultimate"]
+offset_left = -237.891
+offset_top = -390.386
+offset_right = -142.891
+offset_bottom = -250.386
+theme_override_font_sizes/font_size = 100
+text = "R"
+label_settings = ExtResource("6_82pqh")
+
+[node name="TooltipControllerUlt" type="Control" parent="Ultimate"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -261.849
+offset_top = -381.126
+offset_right = -258.849
+offset_bottom = -378.126
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Background Dim" type="Sprite2D" parent="Ultimate"]
+position = Vector2(0.000488281, 311.027)
+scale = Vector2(1.00934, 0.199376)
+texture = ExtResource("14_vgwom")
+
+[node name="Label" type="Label" parent="Ultimate"]
+offset_left = -258.0
+offset_top = 234.0
+offset_right = 254.0
+offset_bottom = 383.0
+text = "ULTIMATE"
+label_settings = ExtResource("8_asvmm")
+horizontal_alignment = 1
+
+[node name="Enemy Ult" type="Sprite2D" parent="."]
+position = Vector2(222, 195)
+scale = Vector2(0.327881, 0.327881)
+texture = ExtResource("13_vsc2d")
+flip_v = true
+script = ExtResource("14_3do0e")
+
+[node name="Background Dim" type="Sprite2D" parent="Enemy Ult"]
+visible = false
+position = Vector2(0, -308.039)
+scale = Vector2(1.00934, 0.199376)
+texture = ExtResource("14_vgwom")
+
+[node name="Label" type="Label" parent="Enemy Ult"]
+visible = false
+offset_left = -256.19
+offset_top = -384.286
+offset_right = 255.81
+offset_bottom = -235.286
+text = "??????????"
+label_settings = ExtResource("8_asvmm")
+horizontal_alignment = 1
+
+[node name="ChargeSprite" type="Sprite2D" parent="."]
+position = Vector2(466, 522)
+scale = Vector2(0.210938, 0.210938)
+texture = ExtResource("6_ll0b8")
+script = ExtResource("7_es7vw")
+
+[node name="Background Dim" type="Sprite2D" parent="ChargeSprite"]
+position = Vector2(0.000488281, 311.027)
+scale = Vector2(1.00934, 0.199376)
+texture = ExtResource("14_vgwom")
+
+[node name="Label" type="Label" parent="ChargeSprite"]
+offset_left = -258.0
+offset_top = 234.0
+offset_right = 254.0
+offset_bottom = 383.0
+text = "CHARGE"
+label_settings = ExtResource("8_asvmm")
+horizontal_alignment = 1
+
+[node name="Key Label" type="Label" parent="ChargeSprite"]
+offset_left = -56.889
+offset_top = 397.158
+offset_right = 61.111
+offset_bottom = 605.158
+theme_override_font_sizes/font_size = 100
+text = "Q"
+label_settings = ExtResource("6_82pqh")
+
+[node name="LockIn" type="Sprite2D" parent="."]
+self_modulate = Color(0.65098, 0.478431, 0.321569, 1)
+position = Vector2(982.688, 308.688)
+scale = Vector2(0.247708, 0.247708)
+texture = ExtResource("9_jeltq")
+script = ExtResource("10_i6dbb")
+
+[node name="Label" type="Label" parent="LockIn"]
+offset_left = -144.0
+offset_top = 203.0
+offset_right = 151.0
+offset_bottom = 411.0
+text = "Space"
+label_settings = SubResource("LabelSettings_tq40l")
+
+[node name="Ulti Notif" type="TextEdit" parent="."]
+visible = false
+offset_left = 245.0
+offset_top = 282.0
+offset_right = 384.0
+offset_bottom = 373.0
+text = "You need 5 
+ammo for the 
+Ultimate"
+editable = false
+script = ExtResource("17_c0cef")
+
+[node name="UltiNotifTimer" type="Timer" parent="Ulti Notif"]
+script = ExtResource("20_owljb")
+
+[node name="Ammo notif" type="TextEdit" parent="."]
+visible = false
+offset_left = 747.0
+offset_top = 397.0
+offset_right = 872.0
+offset_bottom = 467.0
+text = "You have no 
+ammo"
+editable = false
+script = ExtResource("13_o8iii")
+
+[node name="AmmoNotifTimer" type="Timer" parent="Ammo notif"]
+script = ExtResource("22_k2ouk")
+
+[node name="ChosenCard" type="Sprite2D" parent="."]
+position = Vector2(543, 321)
+scale = Vector2(0.228272, 0.216537)
+texture = ExtResource("14_vgwom")
+script = ExtResource("15_v4rk7")
+
+[node name="EnemyCard" type="Sprite2D" parent="."]
+position = Vector2(678, 226)
+scale = Vector2(0.224, 0.217)
+texture = ExtResource("14_vgwom")
+flip_v = true
+script = ExtResource("16_rn7xa")
+
+[node name="DisappearTimer" type="Timer" parent="EnemyCard"]
+wait_time = 3.0
+one_shot = true
+script = ExtResource("17_nq0nj")
+
+[node name="Dynamic Label" type="Label" parent="."]
+visible = false
+offset_left = 248.0
+offset_top = 406.0
+offset_right = 958.0
+offset_bottom = 451.0
+text = "Play Your Move!"
+label_settings = SubResource("LabelSettings_k44pm")
+horizontal_alignment = 1
+autowrap_mode = 2
+script = ExtResource("16_fbbda")
+
+[node name="EndScreen" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(598, 309.312)
+scale = Vector2(0.484497, 0.365397)
+texture = ExtResource("14_vgwom")
+script = ExtResource("20_m4cs5")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="EndScreen"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -433.5
+offset_top = -547.5
+offset_right = -78.5
+offset_bottom = -220.5
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="EndScreen/HBoxContainer"]
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme = SubResource("Theme_cayok")
+theme_override_constants/separation = 17
+alignment = 1
+
+[node name="WinnerLabel" type="Label" parent="EndScreen/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 80
+text = "You won!"
+horizontal_alignment = 1
+vertical_alignment = 1
+script = ExtResource("20_ysp58")
+
+[node name="Button" type="Button" parent="EndScreen/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_fonts/font = SubResource("FontFile_qf60l")
+theme_override_font_sizes/font_size = 60
+text = "Play
+Again!"
+
+[node name="Button2" type="Button" parent="EndScreen/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 60
+text = "Quit
+Game"
+
+[node name="EnemyCards" type="CanvasGroup" parent="."]
+
+[node name="EnemyPlaceholder" type="Sprite2D" parent="EnemyCards"]
+position = Vector2(466, 16)
+scale = Vector2(0.202637, 0.202637)
+texture = ExtResource("27_7b1a5")
+
+[node name="EnemyPlaceholder2" type="Sprite2D" parent="EnemyCards"]
+position = Vector2(600, 16)
+scale = Vector2(0.202637, 0.202637)
+texture = ExtResource("27_7b1a5")
+
+[node name="EnemyPlaceholder3" type="Sprite2D" parent="EnemyCards"]
+position = Vector2(731, 16)
+scale = Vector2(0.202637, 0.202637)
+texture = ExtResource("27_7b1a5")
+
+[node name="SoundController" type="Timer" parent="."]
+wait_time = 0.75
+script = ExtResource("32_kj7sf")
+
+[node name="kick_sound" type="AudioStreamPlayer2D" parent="SoundController"]
+stream = ExtResource("33_r0as4")
+script = ExtResource("34_l3syb")
+
+[node name="countChanger" type="Timer" parent="SoundController/kick_sound"]
+wait_time = 0.19
+one_shot = true
+script = ExtResource("35_4jpi5")
+
+[node name="clap_sound" type="AudioStreamPlayer2D" parent="SoundController"]
+stream = ExtResource("35_i5jmj")
+script = ExtResource("35_ki7wd")
+
+[node name="TimingLabel" type="Label" parent="SoundController"]
+visible = false
+offset_left = 824.0
+offset_top = 369.0
+offset_right = 1205.0
+offset_bottom = 577.0
+text = "NICE "
+label_settings = ExtResource("6_82pqh")
+script = ExtResource("37_ohe1i")
+
+[node name="hideLabel" type="Timer" parent="SoundController/TimingLabel"]
+script = ExtResource("39_wlfso")
+
+[node name="MatchCountdown" type="Timer" parent="SoundController"]
+autostart = true
+script = ExtResource("40_8euej")
+
+[node name="CountdownLabel" type="Label" parent="SoundController/MatchCountdown"]
+offset_left = 574.0
+offset_top = 347.0
+offset_right = 1421.0
+offset_bottom = 555.0
+text = "3"
+label_settings = ExtResource("6_82pqh")
+horizontal_alignment = 1
+script = ExtResource("41_jl2gu")
+
+[connection signal="generate_move" from="." to="EnemyManager" method="_on_node_2d_generate_move"]
+[connection signal="changeEnemyDisplayCard" from="EnemyManager" to="EnemyCard" method="_on_enemy_manager_change_enemy_display_card"]
+[connection signal="p2State" from="EnemyManager" to="LockIn" method="_on_enemy_manager_p_2_state"]
+[connection signal="add_attack" from="AttackSprite" to="LockIn" method="_on_attack_sprite_add_attack"]
+[connection signal="mouse_exited" from="AttackSprite/TooltipController" to="Ammo notif" method="_on_tooltip_controller_mouse_exited"]
+[connection signal="add_defense" from="ShieldSprite" to="LockIn" method="_on_shield_sprite_add_defense"]
+[connection signal="ammoTooltip" from="Ultimate" to="Ulti Notif" method="_on_ultimate_ammo_tooltip"]
+[connection signal="player1Win" from="Ultimate" to="LockIn" method="_on_ultimate_player_1_win"]
+[connection signal="mouse_exited" from="Ultimate/TooltipControllerUlt" to="Ulti Notif" method="_on_tooltip_controller_ult_mouse_exited"]
+[connection signal="add_ammo" from="ChargeSprite" to="LockIn" method="_on_charge_sprite_add_ammo"]
+[connection signal="ammoNotif" from="LockIn" to="Ammo notif" method="_on_lock_in_ammo_notif"]
+[connection signal="ammo_fill" from="LockIn" to="PlayerManager" method="_on_lock_in_ammo_fill"]
+[connection signal="ammo_take" from="LockIn" to="PlayerManager" method="_on_lock_in_ammo_take"]
+[connection signal="changeAttackTexture" from="LockIn" to="AttackSprite" method="_on_lock_in_change_attack_texture"]
+[connection signal="changeDisplayCard" from="LockIn" to="ChosenCard" method="_on_lock_in_change_display_card"]
+[connection signal="checkTimingKick" from="LockIn" to="SoundController" method="_on_lock_in_check_timing_kick"]
+[connection signal="checktimingClap" from="LockIn" to="SoundController/kick_sound" method="_on_lock_in_checktiming_clap"]
+[connection signal="enemyUltAvailable" from="LockIn" to="Enemy Ult" method="_on_lock_in_enemy_ult_available"]
+[connection signal="gameDraw" from="LockIn" to="EndScreen/HBoxContainer/VBoxContainer/WinnerLabel" method="_on_lock_in_game_draw"]
+[connection signal="hurtp1" from="LockIn" to="PlayerManager" method="_on_lock_in_hurtp_1"]
+[connection signal="hurtp2" from="LockIn" to="EnemyManager" method="_on_lock_in_hurtp_2"]
+[connection signal="lock_move" from="LockIn" to="." method="_on_lock_in_lock_move"]
+[connection signal="p2ammo_fill" from="LockIn" to="EnemyManager" method="_on_lock_in_p_2_ammo_fill"]
+[connection signal="p2ammo_take" from="LockIn" to="EnemyManager" method="_on_lock_in_p_2_ammo_take"]
+[connection signal="player1Win" from="LockIn" to="EndScreen/HBoxContainer/VBoxContainer/WinnerLabel" method="_on_lock_in_player_1_win"]
+[connection signal="player2Win" from="LockIn" to="EndScreen/HBoxContainer/VBoxContainer/WinnerLabel" method="_on_lock_in_player_2_win"]
+[connection signal="showEndScreen" from="LockIn" to="EndScreen" method="_on_lock_in_show_end_screen"]
+[connection signal="stopCardChangeTimer" from="LockIn" to="EnemyCard/DisappearTimer" method="_on_lock_in_stop_card_change_timer"]
+[connection signal="stop_music" from="LockIn" to="SoundController" method="_on_lock_in_stop_music"]
+[connection signal="ultimateCounter" from="LockIn" to="Ultimate" method="_on_lock_in_ultimate_counter"]
+[connection signal="visibility_changed" from="Ulti Notif" to="Ulti Notif/UltiNotifTimer" method="_on_ulti_notif_visibility_changed"]
+[connection signal="timeout" from="Ulti Notif/UltiNotifTimer" to="Ulti Notif" method="_on_ulti_notif_timer_timeout"]
+[connection signal="visibility_changed" from="Ammo notif" to="Ammo notif/AmmoNotifTimer" method="_on_ammo_notif_visibility_changed"]
+[connection signal="timeout" from="Ammo notif/AmmoNotifTimer" to="Ammo notif" method="_on_ammo_notif_timer_timeout"]
+[connection signal="restartPickedCard" from="EnemyCard" to="ChosenCard" method="_on_enemy_card_restart_picked_card"]
+[connection signal="startTimer" from="EnemyCard" to="EnemyCard/DisappearTimer" method="_on_enemy_card_start_timer"]
+[connection signal="restartTexture" from="EnemyCard/DisappearTimer" to="EnemyCard" method="_on_disappear_timer_restart_texture"]
+[connection signal="timeout" from="EnemyCard/DisappearTimer" to="EnemyCard" method="_on_timer_timeout"]
+[connection signal="pressed" from="EndScreen/HBoxContainer/VBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="EndScreen/HBoxContainer/VBoxContainer/Button2" to="." method="_on_button_2_pressed"]
+[connection signal="clapOrKick" from="SoundController" to="SoundController/kick_sound" method="_on_sound_controller_clap_or_kick"]
+[connection signal="timeout" from="SoundController" to="SoundController/kick_sound" method="_on_sound_controller_timeout"]
+[connection signal="changeCount" from="SoundController/kick_sound" to="SoundController/kick_sound/countChanger" method="_on_kick_sound_change_count"]
+[connection signal="clap" from="SoundController/kick_sound" to="SoundController/clap_sound" method="_on_kick_sound_clap"]
+[connection signal="niceBeat" from="SoundController/kick_sound" to="SoundController/TimingLabel" method="_on_kick_sound_nice_beat"]
+[connection signal="timeout" from="SoundController/kick_sound/countChanger" to="SoundController/kick_sound" method="_on_count_changer_timeout"]
+[connection signal="autoLock" from="SoundController/clap_sound" to="LockIn" method="_on_clap_sound_auto_lock"]
+[connection signal="disappearingLabel" from="SoundController/TimingLabel" to="SoundController/TimingLabel/hideLabel" method="_on_timing_label_disappearing_label"]
+[connection signal="timeout" from="SoundController/TimingLabel/hideLabel" to="SoundController/TimingLabel" method="_on_hide_label_timeout"]
+[connection signal="countdownSignal" from="SoundController/MatchCountdown" to="SoundController/MatchCountdown/CountdownLabel" method="_on_match_countdown_countdown_signal"]
+[connection signal="playKick" from="SoundController/MatchCountdown" to="SoundController/kick_sound" method="_on_match_countdown_play_kick"]
+[connection signal="startGame" from="SoundController/MatchCountdown" to="SoundController" method="_on_match_countdown_start_game"]
+[connection signal="timeout" from="SoundController/MatchCountdown" to="SoundController/MatchCountdown" method="_on_timeout"]
+[connection signal="visibility_changed" from="SoundController/MatchCountdown/CountdownLabel" to="SoundController/kick_sound" method="_on_countdown_label_visibility_changed"]

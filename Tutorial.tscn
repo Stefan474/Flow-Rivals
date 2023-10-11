@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://c88agx6et6osm"]
+
+[ext_resource type="Texture2D" uid="uid://1fto8muccw2r" path="res://Assets/Menu/Tutorial/Rules 1.png" id="1_ktuax"]
+[ext_resource type="Script" path="res://Scripts/Tutorial.gd" id="2_tav87"]
+
+[node name="Node2D" type="Node2D"]
+
+[node name="Tutorial" type="Sprite2D" parent="."]
+position = Vector2(957, 540)
+texture = ExtResource("1_ktuax")
+script = ExtResource("2_tav87")

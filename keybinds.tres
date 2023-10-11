@@ -1,0 +1,9 @@
+[gd_resource type="LabelSettings" load_steps=2 format=3 uid="uid://c8hfsjdhhxeqr"]
+
+[ext_resource type="FontFile" uid="uid://c5iun7xd2m3oe" path="res://Assets/Font/ShadowsIntoLight-Regular.ttf" id="1_jfaj1"]
+
+[resource]
+font = ExtResource("1_jfaj1")
+font_size = 200
+outline_size = 15
+outline_color = Color(0, 0, 0, 1)
